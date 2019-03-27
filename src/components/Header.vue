@@ -17,11 +17,9 @@
             <Icon type="ios-arrow-down"></Icon>
           </a>
           <DropdownMenu slot="list">
-            <DropdownItem>
-              <a href="/user/detail.html">个人资料</a>
-            </DropdownItem>
-            <DropdownItem>
-              <a href="/user/article/list.html">我的文章</a>
+            <DropdownItem v-for="(item,index) in SignInMenu"
+                          :key="index">
+              <router-link :to="item.url">{{item.label}}</router-link>
             </DropdownItem>
             <DropdownItem>
               <a href="javascript:"
@@ -39,7 +37,7 @@
 </template>
 
 <script>
-  import NavMenu from '../assets/js/nav-menu'
+  import { NavMenu, SignInMenu } from '../assets/js/nav-menu'
   import { Dropdown, DropdownItem, DropdownMenu, Icon } from 'iview'
   import { mapActions, mapGetters } from 'vuex'
   import MUser from '../model/MUser'
@@ -51,6 +49,7 @@
     data () {
       return {
         NavMenu,
+        SignInMenu,
         user: null
       }
     },
@@ -68,9 +67,18 @@
           signInInfo.setUser(new MUser(res.data))
           this.setSignInInfo(signInInfo)
         }
+        this.updateSignInMenu()
       },
       signOut () {
         this.setSignInInfo(null)
+      },
+      updateSignInMenu () {
+        if (this.isSignIn) {
+          const userId = this.userId
+          this.SignInMenu.forEach(item => {
+            item.url = item.url.replace(':userId', userId)
+          })
+        }
       }
     },
     computed: {
