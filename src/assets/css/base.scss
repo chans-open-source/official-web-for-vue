@@ -1,0 +1,130 @@
+/**px转rem*/
+@function rem($n) {
+  @return $n / 24 * 1rem;
+}
+
+@font-face {
+  font-family: 'SourceCode';
+  src: url('/fonts/SourceCodeVariable-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$orange: #fe5621;
+$black: #222222;
+$background: #f5f5f5;
+$shadow: rgba(0, 0, 0, 0.25);
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body, html {
+  color: $black;
+  background-color: $background;
+  font-family: "SourceCode", serif ! important;
+}
+
+body {
+  font-size: 14px;
+
+  .container {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #4b4b57;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus, a:active {
+  outline: none;
+  text-decoration: none;
+  color: #4b4b57;
+  border: none;
+}
+
+/**阴影*/
+.shadow {
+  $s: 0 0 5px $shadow;
+  box-shadow: $s;
+  -webkit-box-shadow: $s;
+}
+
+.shadow-top {
+  $s: 0 -1px 5px $shadow;
+  box-shadow: $s;
+  -webkit-box-shadow: $s;
+}
+
+.shadow-bottom {
+  $s: 0 1px 5px $shadow;
+  box-shadow: $s;
+  -webkit-box-shadow: $s;
+}
+
+/**位置*/
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.fix {
+  position: fixed;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.lt0 {
+  left: 0;
+  top: 0;
+}
+
+.lb0 {
+  left: 0;
+  bottom: 0;
+}
+
+.rt0 {
+  right: 0;
+  top: 0;
+}
+
+.rb0 {
+  right: 0;
+  bottom: 0;
+}
+
+/**尺寸*/
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}

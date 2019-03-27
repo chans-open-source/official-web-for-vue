@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="document-version" content="<%= htmlWebpackPlugin.options.title.t %>">
+  <script type="application/javascript">
+    try {
+      var __ROOT_VERSION__ = document.getElementsByName('document-version')[0].content
+      console.log('Page create at ' + __ROOT_VERSION__)
+      var __HOST__ = window.location.host
+      var __ENV_DEBUG__ = /(\d+\.\d+\.\d+\.\d+|localhost)/.test(__HOST__)
+      var __ENV_TEST__ = __ENV_DEBUG__ || /t.chansos.com/g.test(__HOST__)
+    } catch (e) {
+    }
+  </script>
+  <link rel="shortcut icon" href=https://image.chansos.com/static/icon_bunny_large.png type=image/x-icon>
+  <title><%= htmlWebpackPlugin.options.title.n %></title>
+</head>
+<body>
+<noscript>
+  <strong>请开启浏览器的JS功能</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+</html>
