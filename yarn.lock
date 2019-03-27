@@ -8368,6 +8368,11 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-apis@0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/vue-apis/-/vue-apis-0.1.9.tgz#53b3fdbd64e7f9827b94431915e65d155ad00a62"
+  integrity sha512-nfZeE2hkeNedtPNedV+YMhnoUltft5vYeW5LzBzgDHkj7VTCMKQOTVf7DrER7nc3vhVYgVwWk4oH3n38jPE5vA==
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "http://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"

@@ -4,7 +4,7 @@ const defaultValue = MObject.defaultValue;
 export default class MSignInInfo extends MObject {
   constructor (obj = {}) {
     super(obj);
-    this.accessToken = defaultValue(obj['accessToken'], '');
+    this.jwt = defaultValue(obj['jwt'], '');
     this.createAt = defaultValue(obj['createAt'], undefined);
     this.expiredAt = defaultValue(obj['expiredAt'], undefined);
     const user = defaultValue(obj['user'], {});

@@ -61,7 +61,7 @@
         const self = this
         const { signInInfo } = self
         if (signInInfo) {
-          const res = await this.$api.user.detail(self.signInInfo.user.id)
+          const res = await this.$apis.user.detail(self.signInInfo.user.id)
           console.log(res)
         }
       },

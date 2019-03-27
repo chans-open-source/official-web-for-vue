@@ -2,12 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Api from './api'
 import Iview from './iview'
 import Initiator from './utils/Initiator'
+import VueApis from 'vue-apis'
+import Api from './api'
 
 Vue.config.productionTip = false
-Vue.use(Api)
+Vue.use(VueApis, {
+  apis: Api,
+  showLoading: () => {
+    window.globalApp['showLoading']()
+  },
+  hideLoading: () => {
+    window.globalApp['hideLoading']()
+  }
+})
 Vue.use(Iview)
 
 new Vue({

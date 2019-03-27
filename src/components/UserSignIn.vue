@@ -109,14 +109,14 @@
         } else if (!TextUtils.check.password(password)) {
           self.showWarn(`请输入8~32位个字（英文大小写、数字的组合）`)
         } else if (mode === 0) {
-          const res = await this.$api.user.sign.in(username, password)
+          const res = await this.$apis.user.sign.in(username, password)
           if (res.code === 0) {
             self.onSignInSuccess(res.data)
           } else {
             self.showError(res.message)
           }
         } else if (mode === 1) {
-          const res = await this.$api.user.sign.up(username, password)
+          const res = await this.$apis.user.sign.up(username, password)
           if (res.code === 0) {
             self.onSignUpSuccess()
           } else {
