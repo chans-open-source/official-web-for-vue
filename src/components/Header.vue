@@ -13,7 +13,7 @@
                   trigger="click"
                   v-if="isSignIn">
           <a href="javascript:">
-            {{signInInfo.user.name}}
+            {{username}}
             <Icon type="ios-arrow-down"></Icon>
           </a>
           <DropdownMenu slot="list">
@@ -40,15 +40,18 @@
 
 <script>
   import NavMenu from '../assets/js/nav-menu'
-  import { Dropdown, DropdownMenu, DropdownItem, Icon } from 'iview'
+  import { Dropdown, DropdownItem, DropdownMenu, Icon } from 'iview'
   import { mapActions, mapGetters } from 'vuex'
+  import MUser from '../model/MUser'
+  import MSignInInfo from '../model/MSignInInfo'
 
   export default {
     name: 'Header',
     components: { Dropdown, DropdownMenu, DropdownItem, Icon },
     data () {
       return {
-        NavMenu
+        NavMenu,
+        user: null
       }
     },
     async created () {
@@ -58,11 +61,12 @@
     methods: {
       ...mapActions(['showSignIn', 'showSignUp', 'setSignInInfo']),
       async onSignInInfoUpdate () {
-        const self = this
-        const { signInInfo } = self
-        if (signInInfo) {
-          const res = await this.$apis.user.detail(self.signInInfo.user.id)
-          console.log(res)
+        const { isSignIn, userId, needToUpdate } = this
+        if (isSignIn && needToUpdate && !!userId) {
+          const res = await this.$apis.user.detail(userId)
+          const signInInfo = new MSignInInfo(this.signInInfo)
+          signInInfo.setUser(new MUser(res.data))
+          this.setSignInInfo(signInInfo)
         }
       },
       signOut () {
@@ -75,6 +79,22 @@
       }),
       isSignIn () {
         return !!this.signInInfo
+      },
+      nonNullUser () {
+        return (this.signInInfo || {}).user || {}
+      },
+      needToUpdate () {
+        return (Date.now() - this.lastUpdated) > 60000
+      },
+      lastUpdated () {
+        const lastUpdated = this.nonNullUser.lastUpdated
+        return isNaN(lastUpdated) ? 0 : lastUpdated
+      },
+      userId () {
+        return this.nonNullUser.id
+      },
+      username () {
+        return this.nonNullUser.username
       }
     },
     watch: {
@@ -111,6 +131,10 @@
           float: left;
           height: 50px;
           border-bottom: 2px solid transparent;
+
+          a {
+            padding: 10px 0;
+          }
         }
 
         .menu-item:hover {

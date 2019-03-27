@@ -40,10 +40,10 @@ const $api = {
       .setHeaders(defaultHeaders())
       .request()
     },
-    ghost: {
+    guest: {
       jwt () {
         return new ApiOptions()
-        .setUrl(`${Url.user.ghost.jwt}`)
+        .setUrl(`${Url.user.guest.jwt}`)
         .setMethod(ApiMethod.GET)
         .request()
       }

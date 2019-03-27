@@ -11,8 +11,8 @@ export default {
       in: url('user/login')
     },
     detail: url('user/detail'),
-    ghost: {
-      jwt: url('user/ghost/jwt')
+    guest: {
+      jwt: url('user/guest/jwt')
     }
   },
   taobao: {

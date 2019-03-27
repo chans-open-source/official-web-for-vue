@@ -11,7 +11,6 @@
       return {}
     },
     created () {
-      console.log('created')
     },
     methods: {},
     computed: {},
