@@ -1,5 +1,7 @@
 <template>
-
+  <section class="module-layout">
+    文章详情
+  </section>
 </template>
 
 <script>

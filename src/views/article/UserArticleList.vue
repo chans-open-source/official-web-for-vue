@@ -1,5 +1,7 @@
 <template>
-
+  <section class="module-layout">
+    用户文章
+  </section>
 </template>
 
 <script>

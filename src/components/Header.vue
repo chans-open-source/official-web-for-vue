@@ -38,14 +38,13 @@
 
 <script>
   import { NavMenu, SignInMenu } from '../assets/js/nav-menu'
-  import { Dropdown, DropdownItem, DropdownMenu, Icon } from 'iview'
   import { mapActions, mapGetters } from 'vuex'
   import MUser from '../model/MUser'
   import MSignInInfo from '../model/MSignInInfo'
 
   export default {
     name: 'Header',
-    components: { Dropdown, DropdownMenu, DropdownItem, Icon },
+    components: {},
     data () {
       return {
         NavMenu,

@@ -69,7 +69,6 @@
   import { mapGetters, mapActions } from 'vuex'
   import MSignInInfo from '../model/MSignInInfo'
   import TextUtils from '../utils/TextUtils'
-  import { Button, Input } from 'iview'
 
   export default {
     name: 'UserSignIn',
@@ -84,7 +83,6 @@
       }
     },
     components: {
-      Button, Input
     },
     methods: {
       ...mapActions(['hideSignIn', 'setSignInInfo']),

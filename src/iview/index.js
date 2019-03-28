@@ -1,5 +1,5 @@
 import '@/assets/css/iview.less'
-import { Message, Spin } from 'iview'
+import { Dropdown, DropdownItem, DropdownMenu, Icon, Button, Input, Message, Spin } from 'iview'
 
 const config = {
   $Message: Message,
@@ -23,8 +23,14 @@ const config = {
     window.globalApp.$Spin.hide()
   }
 }
+
+const components = {
+  Dropdown, DropdownItem, DropdownMenu, Icon, Button, Input
+}
+
 export default class Plugin {
   static install (Vue) {
+    Object.keys(components).forEach(key => Vue.component(key, components[key]))
     Object.keys(config).forEach(key => Vue.prototype[key] = config[key])
   }
 }
