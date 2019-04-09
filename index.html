@@ -3,8 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>兔子人官网</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
 </head>
 <body>
+<div id="Project"></div>
+<script>
+  var md = `
+# 兔子人官网
+## 简介
+* 兔子人开源网致力于打造成为多种编程语言的开源网站。
 
+* 转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源，商业媒体及纸媒请先联系本站。
+
+* 站内提供大量与互联网、科学、教育相关的内容。大家能从中了解到更多新的知识。所有的信息皆开源，请勿擅自用于商业运作。
+
+* [官网](https://chansos.com)
+
+* [Github](https://github.com/Chans-Open-Source)
+
+## 开源项目
+| 项目名 | 源码 | 简介 |
+| :--- | :--- | :--- |
+|官网|[Github](https://github.com/Chans-Open-Source/official-web-for-vue)|兔子人开源官网|
+|vue-apis|[Github](https://github.com/Chans-Open-Source/vue-apis)|集成axios的vue插件|
+|optimize-vue|[Github](https://github.com/Chans-Open-Source/optimize-vue)|基于 vue-cli 3.0 构建的快速开发框架|
+|optimize-vue-cli|[Github](https://github.com/Chans-Open-Source/optimize-vue-cli)|基于 vue-cli 3.0 构建的快速开发框架的脚手架|
+|RxKotlinLibs|[Github](https://github.com/Chans-Open-Source/RxKotlinLibs)|Integrated RxJava, RxAndroid, Kotlin, Some Application manager utils.|
+|RxAndroid4Kotlin|[Github](https://github.com/Chans-Open-Source/RxAndroid4Kotlin)|一个以Kotlin语言进行开发的RxAndroid应用。集成了MVP框架、RxJava网络请求、Glide图片加载。定义了Activity、Fragment、ViewPageFragment基类，支持自动装配MVP配置信息和一些Activity启动配置。|
+
+## 成员
+| 成员名 | 主页 |
+| :--- | :--- |
+| Changeden | [https://github.com/ChangedenCZD](https://github.com/ChangedenCZD) |
+
+`;
+  var converter = new showdown.Converter({tables: true})
+  var html = converter.makeHtml(md);
+  window.document.getElementById('Project').innerHTML = html;
+</script>
 </body>
 </html>
